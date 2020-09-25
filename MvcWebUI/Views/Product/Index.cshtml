@@ -1,0 +1,24 @@
+﻿@model ProductListViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<h2>Ürünler</h2>
+<table class="table table-responsive">
+
+    @foreach (var item in Model.Products)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.ProductName</td>
+            <td>@item.QuantityPerUnit</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.UnitsInStock</td>
+            <td><a class="btn btn-sm btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@item.ProductId">Sepete Ekle</a></td>
+        </tr>
+    }
+
+</table>
+
+
